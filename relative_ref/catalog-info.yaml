@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: asyncapi-avro-relative-ref
+  description: Reference to AsyncAPI spec file in the same repo. The AsyncAPI spec contains a reference to an .avsc file also stored in the same repo and same directory.
+spec:
+  type: asyncapi
+  lifecycle: development
+  owner: demo
+  definition:
+    $text: asyncapi.yaml

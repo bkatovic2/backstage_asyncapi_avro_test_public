@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: asyncapi-avro-no-schema
+  description: Reference to AsyncAPI spec file in the same repo. There is no schema defined in the AsyncAPI spec.
+spec:
+  type: asyncapi
+  lifecycle: development
+  owner: demo
+  definition:
+    $text: asyncapi.yaml

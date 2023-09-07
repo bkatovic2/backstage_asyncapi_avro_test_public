@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: asyncapi-avro-embedded-spec
+  description: AsyncAPI spec embedded in catalog-info.yaml file. The AsyncAPI spec contains a reference to an .avsc file in the same repository and directory.
+spec:
+  type: asyncapi
+  lifecycle: development
+  owner: demo
+  definition: |
+    asyncapi: 2.0.0
+    info:
+      title: Demo API
+      version: '1.0.0'
+      description: |
+        Demo API for debugging Backstage & AsyncAPI integration.
+
+    servers:
+      development:
+        url: localhost:9094
+        protocol: kafka
+        description: You run this locally.
+
+    channels:
+      orders:
+        subscribe:
+          operationId: StartProducer
+          message:
+            $ref: '#/components/messages/userMadeOrder'
+
+        publish:
+          operationId: StartConsumer
+          message:
+            $ref: '#/components/messages/userMadeOrder'
+
+    components:
+      messages:
+        userMadeOrder:
+          name: Order
+          title: User has made an order.
+          summary: Inform about a new user order in the system
+          schemaFormat: application/vnd.apache.avro+json;version=1.9.0
+          payload:
+            $ref: './Order.avsc'
+
+

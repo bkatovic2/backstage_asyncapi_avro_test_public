@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: asyncapi-avro-public-url
+  description: Reference to AsyncAPI spec file in the same repo. The AsyncAPI spec contains a reference to a public GitHub URL with the .avsc file.
+spec:
+  type: asyncapi
+  lifecycle: development
+  owner: demo
+  definition:
+    $text: asyncapi.yaml
