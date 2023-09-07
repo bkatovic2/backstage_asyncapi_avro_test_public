@@ -31,4 +31,4 @@ components:
       summary: Inform about a new user order in the system
       schemaFormat: application/vnd.apache.avro+json;version=1.9.0
       payload:
-        $ref: 'https://raw.githubusercontent.com/blablabla'
+        $ref: 'https://raw.githubusercontent.com/bkatovic2/backstage_asyncapi_avro_test_public/main/public_url_ref/Order.avsc'
